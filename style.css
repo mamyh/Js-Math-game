@@ -1,0 +1,75 @@
+.boxes{
+    display: flex; 
+    width: 100%;
+}
+.progress{
+    border:1px solid #777;
+    border-right:none;
+    position: relative;
+}
+.progress-inner{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    width:100%;
+    background-color:#7cee00;
+    opacity: .55;
+    transform:scaleX(0);
+    transform-origin: left;
+    transition: transform .5s ease-out;
+}
+.box{
+    border-right:1px solid #777;
+    height: 30px;
+    flex: 1;
+}
+.overlay{
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:rgba(255,255,255,.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity:0;
+    visibility: hidden;
+    transition: all 1s ease-out;
+    transform:scale(1.2);
+}
+
+body.overlay-is-open .overlay{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+body.overlay-is-open .container{
+    filter: blur(4px);
+}
+.animate-right{
+    animation:.44s showRight;
+}
+@keyframes showRight{
+    50%{
+        color:green;
+        transform:scaleY(1.2);
+    }
+    100%{
+        color:#333;
+        transform: scaleY(1);
+    }
+}
+.animate-wrong{
+    animation:.44s showWrong;
+}
+@keyframes showWrong{
+    50%{
+        color:red;
+        transform:scaleY(1.2);
+    }
+    100%{
+        color:#333;
+        transform:scaleY(1);
+    }
+}
